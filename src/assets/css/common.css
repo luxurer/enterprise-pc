@@ -1,0 +1,16 @@
+/*滚动条*/
+*::-webkit-scrollbar {width: 6px;height: 6px;}
+*::-webkit-scrollbar-thumb {border-radius: 2px;background: #ccc;}
+*::-webkit-scrollbar-track {background: #f5f7fa;border-radius: 2px;}
+*::-webkit-scrollbar-corner {background:#fff;}
+
+.overflow_ellipsis{
+  width: 99%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/*高亮*/
+.highLight>span{
+  color: #599BF8;
+}
