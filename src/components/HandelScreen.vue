@@ -66,7 +66,7 @@
       <div class="operation_footer">
         <div v-if="this.tabs === '1'" class="reset" @click="handleReset">重 置</div>
         <div v-if="this.tabs === '1'" class="submit" @click="handleSubmit">确 定</div>
-        <div v-if="this.tabs === '2'" @click="openEdit('3', 'add')">新增{{belong === '1' ? '企业' : '机构'}}信息</div>
+        <div v-if="this.tabs === '2'" @click="openEdit('3', 'add')">新增{{belong === '1' ? '社团' : '活动'}}信息</div>
         <div v-if="this.tabs === '2'" @click="exportCurrentData">导出当前数据</div>
         <span v-if="this.tabs === '2'" class="border_line"></span>
       </div>
@@ -400,8 +400,8 @@ export default {
   border-top: 1px solid #E6E6E6;
   position: relative;
   div{
-    width: 50%;
-    line-height: 60px;
+    width: 100%;
+    line-height: 80px;
     text-align: center;
     cursor: pointer;
   }

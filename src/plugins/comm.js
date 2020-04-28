@@ -3,7 +3,7 @@
  * 1.options.token 需要调用的cookie的jstoken  key值  eg:通知公告: tzgg_token 规章制度: gzzd_token
  * 2.options.keyVal 需要调用的cookie的keyVal  eg:通知公告: tzgg_key 规章制度: gzzd_key
  * 3.options.callBackFn getAccessKey的回调函数 eg:addEventListener  loadData()
- * 4.options.companyId 企业ID
+ * 4.options.companyId 社团ID
  * 5.options.jsApiList 该应用需要的本地方法
  * */
 let apiBaseUrl = '/jsoa-ht'

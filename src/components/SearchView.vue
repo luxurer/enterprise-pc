@@ -2,20 +2,20 @@
 <!--  搜索列表-->
   <div class="search_view">
     <div class="search_wrap"  v-if="tabs === '1'">
-      <div class="search_header">
+      <!--<div class="search_header">
         <div @click="changeView('3')"><span class="icon_search"></span>请输入搜索内容</div>
         <div @click="changeView('4')"><span class="icon_shaixuan"></span>筛选</div>
-      </div>
+      </div>-->
       <div class="search_content">
         <EnterpriseList v-if="belong === '1'" :belong="belong" @openEdit="openEdit"/>
         <OrganList v-if="belong === '2'" :belong="belong" @openEdit="openEdit"/>
         <div v-if="exportResult" class="export_result">{{exportResult}}</div>
       </div>
-      <div class="search_footer">
-        <div @click="changeView('2', 'add')">新增{{belong === '1' ? '企业' : '机构'}}信息</div>
+      <!--<div class="search_footer">
+        <div @click="changeView('2', 'add')">新增{{belong === '1' ? '社团' : '活动'}}信息</div>
         <div @click="exportCurrentData">导出当前数据</div>
         <span class="border_line"></span>
-      </div>
+      </div>-->
     </div>
     <OperationView v-if="tabs === '2'" :belong="belong" :operationType="operationType" :currentRowData="currentRowData" @refresh="refresh" ref="operationView"/>
     <HandelSearch v-if="tabs === '3'" :belong="belong" @refresh="refresh" ref="handelSearch"/>

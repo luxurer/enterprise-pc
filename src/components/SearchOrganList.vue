@@ -1,8 +1,8 @@
 <template>
-  <!--  机构列表-->
+  <!--  活动列表-->
   <div class="organ_list">
     <div v-if="listData.length > 0" class="search_result">
-      <span>当前分类：{{industryCount}}个行业，{{organCount}}个网点</span>
+      <!--<span>当前分类：{{industryCount}}个行业，{{organCount}}个网点</span>-->
       <span v-if="showClear" class="clearSearch fr" @click="clearSearch">清除筛选条件</span>
     </div>
     <div v-if="listData.length > 0" class="list_wrap"  v-infinite-scroll="load" :infinite-scroll-immediate="false">
@@ -32,7 +32,7 @@
                 pageSize: 10,
                 total: 0,
                 industryCount: 0, // 行业数量
-                organCount: 0, // 机构数量
+                organCount: 0, // 活动数量
                 listData: [],
                 networkError: false, // 网络异常
                 listLoadFinish: false // 列表没有数据

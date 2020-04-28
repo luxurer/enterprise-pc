@@ -1,8 +1,8 @@
 <template>
-  <!--  企业列表-->
+  <!--  社团列表-->
   <div class="enterprise_list">
     <div v-if="listData.length > 0" class="search_result">
-      <span>当前分类：{{industryCount}}个行业，{{total}}个企业</span>
+      <!--<span>当前分类：{{industryCount}}个行业，{{total}}个社团</span>-->
       <span v-if="showClear" class="clearSearch fr" @click="clearSearch">清除筛选条件</span>
     </div>
     <ul v-if="listData.length > 0" class="list_wrap" v-infinite-scroll="load">
@@ -100,7 +100,7 @@
           this.total = data.page.total
           this.industryCount = data.data.industryCount
         }).catch((error) => {
-          debugger
+         /* debugger*/
           this.networkError = true
         })
       },

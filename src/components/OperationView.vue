@@ -2,7 +2,7 @@
 <!--  新增或者编辑-->
   <div class="operation_view">
     <div class="operation_header">
-      {{operationType === 'add' ? '新增' : '编辑'}}{{belong === '1' ? '企业' : '机构'}}信息
+      {{operationType === 'add' ? '新增' : '编辑'}}{{belong === '1' ? '社团' : '活动'}}信息
       <span class="el-icon-close fr" @click="handleReset"></span>
     </div>
     <div class="operation_content">
@@ -68,8 +68,8 @@
       </el-form>
     </div>
     <div class="operation_footer">
-      <div class="reset" @click="handleReset">取 消</div>
-      <div class="submit" @click="handleSubmit">保 存</div>
+      <div class="submit" @click="handleReset">取 消</div>
+      <!--<div class="submit" @click="handleSubmit">保 存</div>-->
     </div>
   </div>
 </template>
@@ -127,25 +127,25 @@ export default {
             lng: this.lngLat[0],
             propertyList: []
           }
-          // 企业、机构名称
+          // 社团、活动名称
           data.propertyList.push({
             code: this.belong === '1' ? 'A000001' : 'A000004',
             value: this.formData.name,
             type: 1
           })
-          // 企业、机构行业
+          // 社团、活动行业
           data.propertyList.push({
             code: this.belong === '1' ? 'A000002' : 'A000005',
             value: this.formData.industry,
             type: 1
           })
-          // 企业、机构地址
+          // 社团、活动地址
           data.propertyList.push({
             code: this.belong === '1' ? 'A000003' : 'A000007',
             value: this.formData.address,
             type: 1
           })
-          // 机构网点名称
+          // 活动网点名称
           if (this.formData.level) {
             data.propertyList.push({
               code: 'A000006',

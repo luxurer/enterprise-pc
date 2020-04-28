@@ -1,9 +1,9 @@
 <template>
-<!--  机构列表-->
+<!--  活动列表-->
   <div class="organ_list">
     <div v-if="listData.length > 0" class="search_result">
-      <span>当前分类：{{industryCount}}个行业，{{organCount}}个网点</span>
-      <span v-if="showClear" class="clearSearch fr" @click="clearSearch">清除筛选条件</span>
+      <!--<span>当前分类：{{industryCount}}个行业，{{organCount}}个网点</span>-->
+      <!--<span v-if="showClear" class="clearSearch fr" @click="clearSearch">清除筛选条件</span>-->
     </div>
     <div v-if="listData.length > 0" class="list_wrap"  v-infinite-scroll="load" :infinite-scroll-immediate="false">
       <el-collapse v-model="activeName" accordion>
@@ -20,7 +20,7 @@
           <div :class="activeId === innerItem.id ? 'active' : ''" class="organ" v-for="(innerItem,innerIndex) in item.child" :key="innerIndex" @click.stop="getDetail(innerItem, item.name)">
             <div class="organ_name">
               <span class="overflow_ellipsis">{{innerItem.branch}}</span>
-              <span class="edit fr" @click.stop="handleEdit(innerItem)">编辑</span>
+              <span class="edit fr" @click.stop="handleEdit(innerItem)">预约</span>
             </div>
             <div class="organ_address overflow_ellipsis">{{innerItem.address}}</div>
           </div>
@@ -45,7 +45,7 @@ export default {
       pageSize: 10,
       total: 0,
       industryCount: 0, // 行业数量
-      organCount: 0, // 机构数量
+      organCount: 0, // 活动数量
       listData: [],
       networkError: false, // 网络异常
       listLoadFinish: false // 列表没有数据
@@ -133,7 +133,21 @@ export default {
     },
     // 编辑
     handleEdit (item) {
-      this.$emit('openEdit', item)
+      /*this.$emit('openEdit', item)*/
+      /*alert("预约成功");*/
+      if (true) {
+        this.$message({
+          type: 'success',
+          message: '预约成功，请准时参加',
+          offset: 90
+        });
+      } else {
+        this.$message({
+          type: 'error',
+          message: '人数已满，预约失败',
+          offset: 90
+        });
+      }
     },
     // 清除筛选条件
     clearSearch () {
