@@ -119,7 +119,7 @@ export default {
       this.$refs.form.validate((valid) => {
         if (valid && this.addFlag) {
           this.addFlag = 0
-          let url = '/pc/enterpris/addOrEdit'
+          let url = '/pc/activity/addOrEdit'
           let message = '新增成功！'
           let data = {
             belong: Number(this.belong),
@@ -240,7 +240,7 @@ export default {
     queryDetail (id) {
       this.axios({
         method: 'get',
-        url: '/pc/enterpris/detail',
+        url: '/pc/activity/detail',
         params: {
           id: id,
           belong: this.belong

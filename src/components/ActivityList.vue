@@ -71,7 +71,7 @@ export default {
     getListData (type) {
       this.axios({
         method: 'post',
-        url: '/pc/enterpris/list',
+        url: '/pc/activity/list',
         data: {
           belong: Number(this.belong),
           pageNo: this.pageNo,

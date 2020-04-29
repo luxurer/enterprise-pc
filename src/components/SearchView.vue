@@ -23,7 +23,7 @@
   </div>
 </template>
 <script>
-/*import EnterpriseList from './EnterpriseList'*/
+/*import EnterpriseList from './activityeList'*/
 import ActivityList from './ActivityList'
 let loading = null
 export default {
@@ -73,7 +73,7 @@ export default {
       });
       this.axios({
         method: 'post',
-        url: '/pc/enterpris/export',
+        url: '/pc/activity/export',
         data: {
           belong: this.belong
         }

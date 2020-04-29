@@ -98,7 +98,7 @@
       queryDetail(marker, id, item) {
         this.axios({
           method: 'get',
-          url: '/pc/enterpris/detail',
+          url: '/pc/activity/detail',
           params: {
             id: id,
             belong: this.belong
