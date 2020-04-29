@@ -8,7 +8,7 @@
       </div>-->
       <div class="search_content">
         <EnterpriseList v-if="belong === '1'" :belong="belong" @openEdit="openEdit"/>
-        <OrganList v-if="belong === '2'" :belong="belong" @openEdit="openEdit"/>
+        <ActivityList v-if="belong === '2'" :belong="belong" @openEdit="openEdit"/>
         <div v-if="exportResult" class="export_result">{{exportResult}}</div>
       </div>
       <!--<div class="search_footer">
@@ -17,27 +17,24 @@
         <span class="border_line"></span>
       </div>-->
     </div>
-    <OperationView v-if="tabs === '2'" :belong="belong" :operationType="operationType" :currentRowData="currentRowData" @refresh="refresh" ref="operationView"/>
+   <!-- <OperationView v-if="tabs === '2'" :belong="belong" :operationType="operationType" :currentRowData="currentRowData" @refresh="refresh" ref="operationView"/>
     <HandelSearch v-if="tabs === '3'" :belong="belong" @refresh="refresh" ref="handelSearch"/>
-    <HandelScreen v-if="tabs === '4'" :belong="belong" @refresh="refresh" ref="handelScreen"/>
+    <HandelScreen v-if="tabs === '4'" :belong="belong" @refresh="refresh" ref="handelScreen"/>-->
   </div>
 </template>
 <script>
-import EnterpriseList from './EnterpriseList'
-import OrganList from './OrganList'
-import OperationView from './OperationView'
-import HandelSearch from './HandelSearch'
-import HandelScreen from './HandelScreen'
+/*import EnterpriseList from './EnterpriseList'*/
+import ActivityList from './ActivityList'
 let loading = null
 export default {
   name: 'SearchView',
   props: ['belong'],
   components: {
-    EnterpriseList,
-    OrganList,
-    OperationView,
+    /*EnterpriseList,*/
+    ActivityList,
+    /*OperationView,
     HandelSearch,
-    HandelScreen
+    HandelScreen*/
   },
   watch: {
     belong () {

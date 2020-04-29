@@ -35,7 +35,7 @@
 <script>
 window.setActive = {}
 export default {
-  name: 'OrganList',
+  name: 'ActivityList',
   props: ['belong', 'searchKey', 'noInit', 'highSearch'],
   data () {
     return {
