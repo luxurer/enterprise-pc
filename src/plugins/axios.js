@@ -10,7 +10,7 @@ import { Message } from 'element-ui'
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 let token_key = 'token'
 let config = {
-  baseURL: '/eidm'
+  baseURL: '/bgam'
   // timeout: 60 * 1000, // Timeout
   // withCredentials: true, // Check cross-site Access-Control
 }

@@ -37,7 +37,7 @@ module.exports = {
     https: false, // false关闭https，true为开启
     open: false, // 自动打开浏览器
     proxy: {
-      '/eidm': { // 本地代理
+      '/bgam': { // 本地代理
         // target: 'http://reqhub.xdja.com:3000/mock/611', // Yapi
         // target: 'http://192.168.36.34:8091', // 岳小兵
         // target: 'http://11.12.98.34:8091', // 岳小兵内网
