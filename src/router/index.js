@@ -1,12 +1,22 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import Login from '../components/login'
 
 Vue.use(VueRouter)
 
 const asyncRouterMap = [
   {
-    path: '/',
+    //登录页
+    path: '/login',
+    name: 'Login',
+    meta: {
+      title: '登录页'
+    },
+    component: Login
+  },
+  {
+    path: '/home',
     name: 'home',
     component: Home
   }
