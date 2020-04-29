@@ -1,9 +1,7 @@
 <template>
 <!--  活动列表-->
-  <div class="organ_list">
+  <div class="activity_list">
     <div v-if="listData.length > 0" class="search_result">
-      <!--<span>当前分类：{{industryCount}}个行业，{{organCount}}个网点</span>-->
-      <!--<span v-if="showClear" class="clearSearch fr" @click="clearSearch">清除筛选条件</span>-->
     </div>
     <div v-if="listData.length > 0" class="list_wrap"  v-infinite-scroll="load" :infinite-scroll-immediate="false">
       <el-collapse v-model="activeName" accordion>
@@ -17,12 +15,12 @@
               <div class="industry"><span>{{item.industryInfo.name}}</span></div>
             </div>
           </template>
-          <div :class="activeId === innerItem.id ? 'active' : ''" class="organ" v-for="(innerItem,innerIndex) in item.child" :key="innerIndex" @click.stop="getDetail(innerItem, item.name)">
-            <div class="organ_name">
-              <span class="overflow_ellipsis">{{innerItem.branch}}</span>
+          <div :class="activeId === innerItem.id ? 'active' : ''" class="activity" v-for="(innerItem,innerIndex) in item.child" :key="innerIndex" @click.stop="getDetail(innerItem, item.name)">
+            <div class="activity_name">
+              <span class="overflow_ellipsis">{{innerItem.capacity}}</span>
               <span class="edit fr" @click.stop="handleEdit(innerItem)">预约</span>
             </div>
-            <div class="organ_address overflow_ellipsis">{{innerItem.address}}</div>
+            <div class="activity_address overflow_ellipsis">{{innerItem.address}}</div>
           </div>
         </el-collapse-item>
       </el-collapse>
@@ -44,8 +42,8 @@ export default {
       pageNo: 1,
       pageSize: 10,
       total: 0,
-      industryCount: 0, // 行业数量
-      organCount: 0, // 活动数量
+      industryCount: 0, // 学院或资源数量
+      activityCount: 0, // 活动数量
       listData: [],
       networkError: false, // 网络异常
       listLoadFinish: false // 列表没有数据
@@ -100,7 +98,7 @@ export default {
 
         window.setMapMark.setMarks(lngLatData, this.belong)
         this.total = data.page.total
-        this.organCount = data.data.organCount
+        this.activityCount = data.data.activityCount
         this.industryCount = data.data.industryCount
       }).catch((error) => {
         this.networkError = true
@@ -110,17 +108,17 @@ export default {
     getDetail (item, index) {
       if (this.searchKey) {
         let searchHistory = {
-          enterprise: [],
-          organ: []
+          asscaiation: [],
+          activity: []
         }
         if (localStorage.getItem('searchHistory')) {
           searchHistory = JSON.parse(localStorage.getItem('searchHistory'))
         }
-        const index = searchHistory.organ.findIndex(item => {
+        const index = searchHistory.activity.findIndex(item => {
           return item === this.searchKey
         })
         if (index === -1) {
-          searchHistory.organ.push(this.searchKey)
+          searchHistory.activity.push(this.searchKey)
         }
         localStorage.setItem('searchHistory', JSON.stringify(searchHistory))
       }
@@ -135,7 +133,8 @@ export default {
     handleEdit (item) {
       /*this.$emit('openEdit', item)*/
       /*alert("预约成功");*/
-      console.log("item:"+item);
+      item.personId = "1";
+      console.log("item:"+JSON.stringify(item));
       if (true) {
         this.$message({
           type: 'success',
@@ -171,7 +170,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.organ_list{
+.activity_list{
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -213,14 +212,14 @@ export default {
       }
     }
   }
-  .organ{
+  .activity{
     cursor: pointer;
     border-bottom: 1px solid #EEEEEE;
     &:last-child{
       border-bottom: none;
     }
   }
-  .organ_name{
+  .activity_name{
     font-size: 16px;
     color: #333333;
     line-height: 22px;
@@ -235,7 +234,7 @@ export default {
       cursor: pointer;
     }
   }
-  .organ_address{
+  .activity_address{
     font-size: 12px;
     color: #999999;
     line-height: 18px;

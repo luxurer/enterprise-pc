@@ -94,7 +94,7 @@ export default {
         address: '',
         items: []
       },
-      industryLists: [], // 行业数据
+      industryLists: [], // 学院或资源数据
       rules: {
         name: [
           { required: true, message: ' ', trigger: 'blur' }
@@ -133,7 +133,7 @@ export default {
             value: this.formData.name,
             type: 1
           })
-          // 社团、活动行业
+          // 社团、活动学院或资源
           data.propertyList.push({
             code: this.belong === '1' ? 'A000002' : 'A000005',
             value: this.formData.industry,
