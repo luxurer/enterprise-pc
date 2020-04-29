@@ -135,6 +135,7 @@ export default {
     handleEdit (item) {
       /*this.$emit('openEdit', item)*/
       /*alert("预约成功");*/
+      console.log("item:"+item);
       if (true) {
         this.$message({
           type: 'success',
