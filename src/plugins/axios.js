@@ -3,7 +3,7 @@
 import Vue from 'vue'
 import axios from 'axios'
 import EOA from './eoa'
-import { Message } from 'element-ui'
+import {Message} from 'element-ui'
 // Full config:  https://github.com/axios/axios#request-config
 // axios.defaults.baseURL = process.env.baseURL || process.env.apiUrl || '';
 // axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
@@ -33,13 +33,15 @@ _axios.interceptors.request.use(
 _axios.interceptors.response.use(
   function (response) {
     // Do something with response data
-    // console.log(response)
+    // //console.log(response)
     const res = response.data
+    //console.log(JSON.stringify(res));
     if (typeof res === 'object') {
       if (res.code === '1') {
         return res
       } else {
-        Vue.prototype.$toast(res.message)
+        Vue.prototype.$toast(res.message);
+        Message.error(res.message);
         return Promise.reject()
       }
     }
@@ -48,12 +50,12 @@ _axios.interceptors.response.use(
   function (error) {
     // Do something with response error
     // 请求出错
-    let { response } = error
+    let {response} = error
     let resObj = {
       code: response.status,
       message: ''
     }
-    console.log(response)
+    ////console.log(response)
     if (response.status == 401) {
       resObj.message = '帐号登录超时，请重新登录'
       sessionStorage.removeItem(token_key)
@@ -93,12 +95,12 @@ Plugin.install = function (Vue, options) {
   // window.axios = _axios;
   Object.defineProperties(Vue.prototype, {
     axios: {
-      get () {
+      get() {
         return _axios
       }
     },
     $axios: {
-      get () {
+      get() {
         return _axios
       }
     }

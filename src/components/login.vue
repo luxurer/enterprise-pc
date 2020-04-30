@@ -45,7 +45,7 @@
                 message: '登录成功！',
                 offset: 90
               })
-              this.$router.push("/eis/enterpriseInfo");
+              this.$router.push("/eis/asscaiationInfo");
             } else {
               this.$message({
                 type: 'error',
@@ -79,8 +79,6 @@
           } catch (e) {
           }
           var personId = data.data.person.id;
-          console.log(managerId);
-          console.log(personId);
           if (personId == null && managerId == null) {
             this.$message({
               type: 'error',
@@ -88,6 +86,8 @@
               offset: 90
             });
           } else {
+            sessionStorage.setItem('bgam_pc_isLogin', 'true');
+            sessionStorage.setItem('bgam_pc_personId', personId);
             this.$router.push("/home");
             this.$message({
               type: 'success',

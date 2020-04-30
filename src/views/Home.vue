@@ -1,10 +1,10 @@
 <template>
   <div class="home">
-    <!--<ul :class="asideClose ? 'menu_list menu_list_close':'menu_list menu_list_Open'" @mouseenter="handleMouseenter" @mouseleave="handleMouseleave">
-      &lt;!&ndash;<li :class="belong === '1' ?'active_menu': ''" @click="menuSelect('1')"><span class="huo_dong"></span>{{asideClose?' ':'社团'}}</li>&ndash;&gt;
-     &lt;!&ndash; <li :class="belong === '2' ?'active_menu': ''" @click="menuSelect('2')"><span class="she_tuan"></span>{{asideClose?' ':'活动'}}</li>&ndash;&gt;
-      &lt;!&ndash;<li :class="belong === '3' ?'active_menu': ''" @click="menuSelect('3')"><span class="xiao_xi"></span>{{asideClose?' ':'消息'}}</li>&ndash;&gt;
-    </ul>-->
+    <ul :class="asideClose ? 'menu_list menu_list_close':'menu_list menu_list_Open'" @mouseenter="handleMouseenter" @mouseleave="handleMouseleave">
+      <li :class="belong === '1' ?'active_menu': ''" @click="menuSelect('1')"><span class="huo_dong"></span>{{asideClose?' ':'社团'}}</li>
+      <li :class="belong === '2' ?'active_menu': ''" @click="menuSelect('2')"><span class="she_tuan"></span>{{asideClose?' ':'活动'}}</li>
+      <li :class="belong === '3' ?'active_menu': ''" @click="menuSelect('3')"><span class="xiao_xi"></span>{{asideClose?' ':'已预约'}}</li>
+    </ul>
     <div :class="asideClose ? 'search_box search_box_hide':'search_box'">
       <SearchView :belong="belong"/>
       <div :class="asideClose ? 'aside_control aside_open':'aside_control aside_close'" @click="asideControl" ref="aside_control"></div>

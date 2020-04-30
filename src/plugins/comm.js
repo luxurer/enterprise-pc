@@ -30,22 +30,22 @@ function getAccessFn (vue, options) {
       companyId: companyId,
       terminalType: terminalType,
       callBackFn: function (data) {
-        console.log(data)
+        ////console.log(data)
         getAccessKey({
           signMessage: data,
           jsApiList: options.jsApiList,
           callBackFn: function (data) {
-            console.log('getAccessKey', data)
+            //console.log('getAccessKey', data)
             getTicket({
               terminalType: terminalType,
               callBackFn: function (data) {
-                console.log('getTicket', data)
+                //console.log('getTicket', data)
                 getJstoken(vue, {
                   code: data.authCode,
                   terminalType: terminalType,
                   callbackFn: function (data) {
                     jstoken = data
-                    console.log(jstoken, 'jstoken')
+                    //console.log(jstoken, 'jstoken')
                     window.sessionStorage.setItem(options.token, jstoken)
                     getUser(vue)
                     typeof options.callBackFn === 'function' ? options.callBackFn(jstoken) : ''
@@ -118,7 +118,7 @@ function getJstoken (vue, options) {
       vue.$toast('获取jsToken失败!')
     }
   }).catch(err => {
-    console.log(err)
+    //console.log(err)
   })
 }
 // 获取当前登录人信息

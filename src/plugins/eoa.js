@@ -110,10 +110,10 @@ EOA.addEventListener = function (event, accessCode, callback) {
       callback_event[event] = function (result) {
         callback(result);
       }
-      console.log(callback_event[event]);
+      ////console.log(callback_event[event]);
     },
     error: function (error) {
-      console.log(error);
+      //console.log(error);
     }
   });
 }
@@ -144,14 +144,14 @@ EOA.callNative = function (param) {
       delete callback_fail[failCallback];
     }
   }
-  // console.log(JSON.stringify(param));
+  // //console.log(JSON.stringify(param));
   if (window.eoaBridge) {
     eoaBridge.callNative(JSON.stringify(param));
   }
 }
 //android本地回调js的方法
 EOA.callBackJs = function (result) {
-  // console.log(result);
+  // //console.log(result);
   var resultObj = JSON.parse(result);
   if (resultObj.type === 1) {
     //事件
@@ -173,7 +173,7 @@ EOA.callBackJs = function (result) {
     } else if (resultObj.code == -6) {
       location.reload();
     } else {
-      console.log("此页面未提供error回调方法，结果是：" + result, result);
+      //console.log("此页面未提供error回调方法，结果是：" + result, result);
       alert("执行错误，code=" + resultObj.code + ", message=\"" + resultObj.message + "\"");
     }
   }

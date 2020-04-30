@@ -11,11 +11,33 @@ import './plugins/axios';
 Vue.config.productionTip = false
 Vue.use(ElementUI);
 const originalPush = Router.prototype.push
-Router.prototype.push = function push (location) {
+Router.prototype.push = function push(location) {
   return originalPush.call(this, location).catch(err => err)
-}
+};
+//路由跳转前
+router.beforeEach(((to, from, next) => {
+  let isLogin = sessionStorage.getItem('bgam_pc_isLogin');
+  //已登录，放行
+  if (isLogin != null) {
+    next();
+  }
+  //注销
+  if (to.path == '/logout') {
+    sessionStorage.clear();
+    next({path: '/login'});
+  } /*else if (to.path == '/login') {
+    //已登录，送到主页
+    if (isLogin != null) {
+      next({path: '/home'})
+    }
+    //未登录
+    next();
+  }*/ else if (isLogin == null) {
+    next({path: '/login'});
+  }
+}));
 
-Vue.prototype.$toast = function(msg) {
+Vue.prototype.$toast = function (msg) {
   EOA.callNative({
     method: 'toast',
     params: {

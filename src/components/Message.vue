@@ -35,7 +35,7 @@
 <script>
   window.setActive = {}
   export default {
-    name: 'ActivityList',
+    name: 'Message',
     props: ['belong', 'searchKey', 'noInit', 'highSearch'],
     data() {
       return {
@@ -68,17 +68,20 @@
     },
     methods: {
       // 获取列表数据
-      getListData(type) {
+      getListData: function (type) {
+        var personId = sessionStorage.getItem('bgam_pc_personId');
+        //console.log("personId:\n" + personId + " \n");
         this.axios({
           method: 'post',
           url: '/pc/activity/list',
           data: {
-            belong: Number(this.belong),
+            belong: Number((this.belong)),
             pageNo: this.pageNo,
             pageSize: this.pageSize,
             searchKey: this.searchKey,
             isGroup: true,
-            highSearch: this.highSearch
+            highSearch: this.highSearch,
+            personId: personId
           }
         }).then((data) => {
           if (type === 'cover' || this.pageNo === 1) {
@@ -133,13 +136,15 @@
       },
       // 编辑
       handleEdit(item) {
-        var personId = sessionStorage.getItem('bgam_pc_personId');
-        //console.log("item:"+JSON.stringify(item));
+        /*this.$emit('openEdit', item)*/
+        /*alert("预约成功");*/
+        item.personId = "1";
+        ////console.log("item:"+JSON.stringify(item));
         this.axios({
           method: 'get',
           url: '/pc/order/add',
           params: {
-            personId: personId,
+            personId: item.personId,
             activityId: item.id
           }
         }).then((data) => {
@@ -148,7 +153,7 @@
             message: '预约成功，请准时参加',
             offset: 90
           });
-          /*this.refresh()*/
+          this.refresh()
         })
 
         /*if (true) {

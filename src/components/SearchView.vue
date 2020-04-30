@@ -7,8 +7,9 @@
         <div @click="changeView('4')"><span class="icon_shaixuan"></span>筛选</div>
       </div>-->
       <div class="search_content">
-        <asscaiationList v-if="belong === '1'" :belong="belong" @openEdit="openEdit"/>
+        <AsscaiationList v-if="belong === '1'" :belong="belong" @openEdit="openEdit"/>
         <ActivityList v-if="belong === '2'" :belong="belong" @openEdit="openEdit"/>
+        <Message v-if="belong === '3'" :belong="belong" @openEdit="openEdit"/>
         <div v-if="exportResult" class="export_result">{{exportResult}}</div>
       </div>
       <!--<div class="search_footer">
@@ -23,15 +24,17 @@
   </div>
 </template>
 <script>
-/*import asscaiationList from './activityeList'*/
+import AsscaiationList from './AsscaiationList'
 import ActivityList from './ActivityList'
+import Message from './Message'
 let loading = null
 export default {
   name: 'SearchView',
   props: ['belong'],
   components: {
-    /*asscaiationList,*/
+    AsscaiationList,
     ActivityList,
+    Message
     /*OperationView,
     HandelSearch,
     HandelScreen*/
