@@ -32,9 +32,10 @@ router.beforeEach(((to, from, next) => {
     }
     //未登录
     next();
-  }*/ else if (isLogin == null) {
+  }*/ /*else if (isLogin == null) {
     next({path: '/login'});
-  }
+  }*/
+  next();
 }));
 
 Vue.prototype.$toast = function (msg) {
