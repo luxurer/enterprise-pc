@@ -36,33 +36,6 @@
       }
     },
     methods: {
-      /*onSubmit(formName) {
-        this.$refs[formName].validate((valid) => {
-          if (valid) {
-            if (this.form.name === 'liuwei' && this.form.password === '111111') {
-              this.$message({
-                type: 'success',
-                message: '登录成功！',
-                offset: 90
-              })
-              this.$router.push("/eis/asscaiationInfo");
-            } else {
-              this.$message({
-                type: 'error',
-                message: '账号或密码错误，请检查!',
-                offset: 90
-              })
-            }
-          } else {
-            this.$message({
-              type: 'error',
-              message: '验证失败',
-              offset: 90
-            })
-            return false;
-          }
-        });
-      },*/
       // 登录
       onSubmit(formName) {
         this.axios({
@@ -86,8 +59,10 @@
               offset: 90
             });
           } else {
+            sessionStorage.clear();
             sessionStorage.setItem('bgam_pc_isLogin', 'true');
             sessionStorage.setItem('bgam_pc_personId', personId);
+            sessionStorage.setItem("pc_token", data.data.token);
             this.$router.push("/home");
             this.$message({
               type: 'success',
@@ -95,13 +70,7 @@
               offset: 90
             })
           }
-          //this.refresh()
         })
-        /*this.$confirm('是否确认删除？', '提示', {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消'
-        }).then(() => {
-        })*/
       }
     }
   }

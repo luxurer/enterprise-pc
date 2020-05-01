@@ -8,7 +8,7 @@ import {Message} from 'element-ui'
 // axios.defaults.baseURL = process.env.baseURL || process.env.apiUrl || '';
 // axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
-let token_key = 'token'
+let token_key = ' token'
 let config = {
   baseURL: '/bgam'
   // timeout: 60 * 1000, // Timeout
@@ -17,18 +17,20 @@ let config = {
 
 const _axios = axios.create(config)
 
-_axios.interceptors.request.use(
-  function (config) {
-    config.headers.Authorization = 'Bearer ' + window.sessionStorage.getItem(token_key) || ''
-    // Do something before request is sent
-    return config
-  },
-  function (error) {
-    // Do something with request error
-    return Promise.reject(error)
-  }
-)
-
+  _axios.interceptors.request.use(
+    function (config) {
+      let pc_token = sessionStorage.getItem("pc_token");
+      if (sessionStorage.getItem("pc_token") != null) {
+        config.headers.Authorization = 'Bearer ' + sessionStorage.getItem("pc_token");
+      }
+      // Do something before request is sent
+      return config
+    },
+    function (error) {
+      // Do something with request error
+      return Promise.reject(error)
+    }
+  )
 // Add a response interceptor
 _axios.interceptors.response.use(
   function (response) {

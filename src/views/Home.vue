@@ -143,7 +143,7 @@ export default {
   position: absolute;
   left: 0;
   margin: 10px;
-  background: url("../assets/img/menu_jigou.png") no-repeat center;
+  /*background: url("../assets/img/menu_jigou.png") no-repeat center;*/
 }
 .she_tuan{
   display: inline-block;
@@ -152,7 +152,7 @@ export default {
   position: absolute;
   left: -1px;
   margin: 10px;
-  background: url("../assets/img/menu_jigou.png") no-repeat center;
+  /*background: url("../assets/img/menu_jigou.png") no-repeat center;*/
 }
 .xiao_xi{
   display: inline-block;
@@ -161,6 +161,6 @@ export default {
   position: absolute;
   left: -1px;
   margin: 10px;
-  background: url("../assets/img/menu_qiye.png") no-repeat center;
+  /*background: url("../assets/img/menu_jigou.png") no-repeat center;*/
 }
 </style>

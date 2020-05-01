@@ -20,7 +20,7 @@
                @click.stop="getDetail(innerItem, item.name)">
             <div class="activity_name">
               <span class="overflow_ellipsis">{{innerItem.capacity}}</span>
-              <span class="edit fr" @click.stop="handleEdit(innerItem)">预约</span>
+              <span class="edit fr" @click.stop="handleEdit(innerItem)">已预约</span>
             </div>
             <div class="activity_address overflow_ellipsis">{{innerItem.address}}</div>
           </div>
@@ -136,39 +136,11 @@
       },
       // 编辑
       handleEdit(item) {
-        /*this.$emit('openEdit', item)*/
-        /*alert("预约成功");*/
-        item.personId = "1";
-        ////console.log("item:"+JSON.stringify(item));
-        this.axios({
-          method: 'get',
-          url: '/pc/order/add',
-          params: {
-            personId: item.personId,
-            activityId: item.id
-          }
-        }).then((data) => {
-          this.$message({
-            type: 'success',
-            message: '预约成功，请准时参加',
-            offset: 90
-          });
-          this.refresh()
-        })
-
-        /*if (true) {
-          this.$message({
-            type: 'success',
-            message: '预约成功，请准时参加',
-            offset: 90
-          });
-        } else {
-          this.$message({
-            type: 'error',
-            message: '人数已满，预约失败',
-            offset: 90
-          });
-        }*/
+        this.$message({
+          type: 'success',
+          message: '您已预约，请准时参加',
+          offset: 90
+        });
       },
       // 清除筛选条件
       clearSearch() {

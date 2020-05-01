@@ -148,22 +148,7 @@
             message: '预约成功，请准时参加',
             offset: 90
           });
-          /*this.refresh()*/
         })
-
-        /*if (true) {
-          this.$message({
-            type: 'success',
-            message: '预约成功，请准时参加',
-            offset: 90
-          });
-        } else {
-          this.$message({
-            type: 'error',
-            message: '人数已满，预约失败',
-            offset: 90
-          });
-        }*/
       },
       // 清除筛选条件
       clearSearch() {

@@ -29,10 +29,14 @@
       mapInit() {
         const _this = this
         map = new AMap.Map('container', {
-          zooms: [3, 17],
-          resizeEnable: true
+          zooms: [16, 17],
+          resizeEnable: true,
+          //工业大学为中心
+          center: [113.549923, 34.830976],
+          //风格
+          /*mapStyle: "amap://styles/blue"*/
         })
-        map.setZoomAndCenter(10, [116.397228, 39.909604]);
+        /*map.setZoomAndCenter(16, [113.549923, 34.830976]);*/
         AMap.plugin([
           'AMap.ToolBar'
         ], function () {
